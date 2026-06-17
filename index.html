@@ -1,210 +1,547 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>טיפוח קוריאני טרנדי (K-Beauty) 2026</title>
-<style>
-  :root{
-    --navy:#1e2a78;
-    --navy-dark:#172159;
-    --purple:#7c2d8a;
-    --green-bg:#e8f7ee;
-    --green-txt:#2e7d52;
-    --yellow-bg:#fbf6da;
-    --yellow-txt:#9a7b1a;
-    --ink:#1f2937;
-    --muted:#6b7280;
-  }
-  *{box-sizing:border-box}
-  body{
-    margin:0;font-family:"Segoe UI",Arial,Helvetica,sans-serif;
-    background:#eef1f6;color:var(--ink);
-  }
-  header.top{
-    background:linear-gradient(180deg,var(--navy),var(--navy-dark));
-    color:#fff;padding:22px 28px;
-  }
-  header.top h1{margin:0;font-size:26px;display:flex;align-items:center;gap:10px}
-  header.top p{margin:6px 0 0;color:#c7cdf0;font-size:14px}
-  .wrap{max-width:1100px;margin:32px auto;padding:0 20px;text-align:center}
-  .open-btn{
-    background:var(--purple);color:#fff;border:none;border-radius:12px;
-    padding:16px 30px;font-size:18px;font-weight:700;cursor:pointer;
-    box-shadow:0 6px 18px rgba(124,45,138,.35);transition:.15s;
-  }
-  .open-btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(124,45,138,.45)}
-  .hint{margin-top:14px;color:var(--muted);font-size:14px}
-
-  /* Modal */
-  .overlay{
-    position:fixed;inset:0;background:rgba(15,23,42,.55);
-    display:none;align-items:flex-start;justify-content:center;
-    padding:40px 16px;overflow:auto;z-index:50;
-  }
-  .overlay.show{display:flex}
-  .modal{
-    background:#fff;border-radius:18px;max-width:880px;width:100%;
-    box-shadow:0 30px 80px rgba(0,0,0,.35);overflow:hidden;
-  }
-  .modal-head{
-    display:flex;align-items:flex-start;justify-content:space-between;
-    padding:22px 26px 14px;border-bottom:1px solid #eee;
-  }
-  .modal-head h2{margin:0;font-size:22px}
-  .modal-head .sub{color:var(--purple);font-size:14px;margin-top:4px}
-  .close{background:none;border:none;font-size:24px;cursor:pointer;color:#9ca3af;line-height:1}
-  .intro{padding:18px 26px 0;color:#374151;font-size:15px}
-  .columns{display:grid;grid-template-columns:1fr 1fr;gap:18px;padding:18px 26px 8px}
-  @media(max-width:680px){.columns{grid-template-columns:1fr}}
-  .col{border-radius:14px;padding:16px 18px}
-  .col.future{background:var(--yellow-bg)}
-  .col.available{background:var(--green-bg)}
-  .col h3{margin:0 0 12px;font-size:16px;display:flex;align-items:center;gap:8px}
-  .col.future h3{color:var(--yellow-txt)}
-  .col.available h3{color:var(--green-txt)}
-  .dot{width:10px;height:10px;border-radius:50%;display:inline-block}
-  .dot.red{background:#ef4444}
-  .dot.green{background:#22c55e}
-
-  .product{
-    display:flex;align-items:center;justify-content:space-between;gap:10px;
-    background:#fff;border-radius:10px;padding:10px 12px;margin-bottom:10px;
-    box-shadow:0 1px 3px rgba(0,0,0,.06);
-  }
-  .product .name{font-weight:600;font-size:14.5px}
-  .product .links{display:flex;gap:8px;flex-shrink:0}
-  .product .links a{
-    text-decoration:none;font-size:13px;font-weight:600;
-    padding:6px 10px;border-radius:8px;display:inline-flex;align-items:center;gap:5px;
-    white-space:nowrap;transition:.12s;
-  }
-  .buy{background:#2563eb;color:#fff}
-  .buy:hover{background:#1d4ed8}
-  .ad{background:#111827;color:#fff}
-  .ad:hover{background:#000}
-  .footer-q{padding:6px 26px 24px;font-weight:700;color:#111827}
-  .legend{padding:0 26px 18px;color:var(--muted);font-size:12.5px}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>לוח מחוונים - מוצרים טרנדים לחנות אונליין בישראל | יוני 2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body { font-family: 'Heebo', system-ui, sans-serif; }
+        .modal { animation: modalPop 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
+        @keyframes modalPop {
+            from { transform: scale(0.8) translateY(20px); opacity: 0; }
+            to { transform: scale(1) translateY(0); opacity: 1; }
+        }
+        .product-card { transition: all 0.2s ease; }
+        .product-card:hover { transform: translateY(-4px); box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1); }
+        .tab-button.active { border-bottom: 3px solid #2563eb; color: #2563eb; font-weight: 600; }
+    </style>
 </head>
-<body>
-
-<header class="top">
-  <h1>📈 לוח מחוונים – מוצרים טרנדים לישראל</h1>
-  <p>יוני 2026 • ניתוח משולב (Trends • TikTok • Instagram • Facebook Ads)</p>
-</header>
-
-<div class="wrap">
-  <button class="open-btn" onclick="document.getElementById('kbeauty').classList.add('show')">
-    💧 טיפוח קוריאני טרנדי (K-Beauty)
-  </button>
-  <p class="hint">לחצי על הכפתור כדי לראות את 10 המוצרים הקוריאניים הכי חמים — עם לינק לרכישה ולמקור הפרסום</p>
-</div>
-
-<!-- ===== Modal ===== -->
-<div class="overlay" id="kbeauty">
-  <div class="modal">
-    <div class="modal-head">
-      <div>
-        <h2>טיפוח קוריאני טרנדי (K-Beauty) 2026</h2>
-        <div class="sub">10 המוצרים הקוריאניים הכי חמים</div>
-      </div>
-      <button class="close" onclick="document.getElementById('kbeauty').classList.remove('show')">✕</button>
+<body class="bg-slate-50">
+    <!-- Header -->
+    <div class="bg-gradient-to-r from-blue-700 to-blue-600 text-white py-6">
+        <div class="max-w-7xl mx-auto px-6">
+            <h1 class="text-3xl font-bold flex items-center gap-3">
+                <i class="fas fa-chart-line"></i>
+                לוח מחוונים - מוצרים טרנדים לישראל
+            </h1>
+            <p class="text-blue-100 mt-1">יוני 2026 • ניתוח משולב (Trends • TikTok • Instagram • Facebook Ads)</p>
+        </div>
     </div>
 
-    <p class="intro">ניתוח מקיף של 8 מוצרי טיפוח קוריאניים (K-Beauty) הכי טרנדיים ב‑2026. לכל מוצר: 🛒 לינק לרכישה, 📣 לינק למקור הפרסום הכי מוצלח (הסרטון/הקמפיין הויראלי שהפך אותו לטרנד).</p>
+    <div class="max-w-7xl mx-auto px-6 py-8">
 
-    <div class="columns">
-      <!-- Future trends -->
-      <div class="col future">
-        <h3><span class="dot red"></span> טרנדים חדשים / עתידיים</h3>
-
-        <div class="product">
-          <span class="name">Medicube Collagen Jelly</span>
-          <span class="links">
-            <a class="buy" href="https://il.iherb.com/search?kw=Medicube%20Collagen%20Jelly" target="_blank" rel="noopener">🛒 רכישה</a>
-            <a class="ad" href="https://www.tiktok.com/search?q=Medicube%20Collagen%20Jelly" target="_blank" rel="noopener">📣 פרסום</a>
-          </span>
+        <!-- Summary Cards + K-Beauty Button -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+            <!-- Existing summary cards remain the same -->
+            <div onclick="showAllProducts()" class="bg-white p-5 rounded-3xl border-2 border-blue-300 cursor-pointer hover:shadow-md active:scale-[0.985] transition-all">
+                <div class="flex justify-between">
+                    <div>
+                        <p class="text-sm text-slate-500">מוצרים מנותחים</p>
+                        <p class="text-4xl font-bold">8</p>
+                    </div>
+                    <i class="fas fa-boxes text-3xl text-blue-500"></i>
+                </div>
+                <div class="text-xs text-blue-600 mt-2 font-medium">לחץ להצגת כל 8 המוצרים</div>
+            </div>
+            <div onclick="filterHighFeasibility()" class="bg-white p-5 rounded-3xl border-2 border-emerald-400 cursor-pointer hover:shadow-md active:scale-[0.985] transition-all">
+                <div class="flex justify-between">
+                    <div>
+                        <p class="text-sm text-slate-500">כדאיות גבוהה (1-2)</p>
+                        <p class="text-4xl font-bold text-emerald-600">5</p>
+                    </div>
+                    <i class="fas fa-tachometer-alt text-3xl text-emerald-500"></i>
+                </div>
+                <div class="text-xs text-emerald-700 mt-2 font-medium">לחץ לסינון 5 המוצרים המומלצים</div>
+            </div>
+            <div onclick="showAverageExplanation()" class="bg-white p-5 rounded-3xl border-2 border-amber-300 cursor-pointer hover:shadow-md active:scale-[0.985] transition-all">
+                <div class="flex justify-between">
+                    <div>
+                        <p class="text-sm text-slate-500">ממוצע כדאיות</p>
+                        <p class="text-4xl font-bold text-amber-600">2.1</p>
+                    </div>
+                    <i class="fas fa-star text-3xl text-amber-500"></i>
+                </div>
+                <div class="text-xs text-amber-600 mt-2 font-medium">לחץ להסבר על הממוצע</div>
+            </div>
+            <div onclick="showProductDetail(1)" class="bg-white p-5 rounded-3xl border-2 border-red-300 cursor-pointer hover:shadow-md active:scale-[0.985] transition-all">
+                <div class="flex justify-between">
+                    <div>
+                        <p class="text-sm text-slate-500">הזדמנות חמה</p>
+                        <p class="text-xl font-bold text-red-600">מונדיאל 2026</p>
+                    </div>
+                    <i class="fas fa-fire text-3xl text-red-500"></i>
+                </div>
+                <div class="text-xs text-red-600 mt-2 font-medium">לחץ לפרטי המוצר</div>
+            </div>
         </div>
 
-        <div class="product">
-          <span class="name">VT Cosmetics Reedle Shot</span>
-          <span class="links">
-            <a class="buy" href="https://il.iherb.com/search?kw=VT%20Reedle%20Shot" target="_blank" rel="noopener">🛒 רכישה</a>
-            <a class="ad" href="https://www.tiktok.com/search?q=VT%20Reedle%20Shot" target="_blank" rel="noopener">📣 פרסום</a>
-          </span>
+        <!-- K-Beauty Button -->
+        <div class="mb-8">
+            <button onclick="openKBeautyDashboard()"
+                    class="w-full md:w-auto bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-semibold py-4 px-8 rounded-3xl text-lg flex items-center justify-center gap-3 shadow-lg transition-all active:scale-[0.98]">
+                <i class="fas fa-sparkles"></i>
+                טיפוח קוריאני טרנדי (K-Beauty)
+            </button>
+            <p class="text-center text-sm text-slate-500 mt-2">10 המוצרים הקוריאניים הכי חמים ב-2026</p>
         </div>
 
-        <div class="product">
-          <span class="name">Torriden Dive-In Serum</span>
-          <span class="links">
-            <a class="buy" href="https://il.iherb.com/search?kw=Torriden%20Dive-In%20Serum" target="_blank" rel="noopener">🛒 רכישה</a>
-            <a class="ad" href="https://www.tiktok.com/search?q=Torriden%20Dive-In%20Serum" target="_blank" rel="noopener">📣 פרסום</a>
-          </span>
+        <!-- Product Cards Grid -->
+        <h2 class="text-2xl font-semibold mb-4">מוצרים טרנדים - סקירה</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4" id="productGrid">
+            <!-- Populated by JS -->
         </div>
 
-        <div class="product">
-          <span class="name">Abib Heartleaf</span>
-          <span class="links">
-            <a class="buy" href="https://il.iherb.com/search?kw=Abib%20Heartleaf" target="_blank" rel="noopener">🛒 רכישה</a>
-            <a class="ad" href="https://www.tiktok.com/search?q=Abib%20Heartleaf" target="_blank" rel="noopener">📣 פרסום</a>
-          </span>
-        </div>
-      </div>
+        <!-- Table -->
+        <div class="mt-10">
+            <h2 class="text-2xl font-semibold mb-4">טבלה מפורטת</h2>
 
-      <!-- Available in Israel -->
-      <div class="col available">
-        <h3><span class="dot green"></span> כבר זמינים בישראל</h3>
+            <div class="flex items-center gap-2 text-xs text-gray-500 mb-2 px-1">
+                <span class="text-blue-600">←</span>
+                <span>גלול שמאלה למידע נוסף</span>
+            </div>
 
-        <div class="product">
-          <span class="name">COSRX Snail Mucin</span>
-          <span class="links">
-            <a class="buy" href="https://il.iherb.com/search?kw=COSRX%20Snail%20Mucin" target="_blank" rel="noopener">🛒 רכישה</a>
-            <a class="ad" href="https://www.tiktok.com/search?q=COSRX%20Snail%20Mucin" target="_blank" rel="noopener">📣 פרסום</a>
-          </span>
+            <div class="bg-white rounded-3xl border overflow-x-auto">
+                <table class="min-w-[750px] w-full">
+                    <thead class="bg-slate-100">
+                        <tr>
+                            <th class="p-4 text-right">דירוג</th>
+                            <th class="p-4 text-right">מוצר</th>
+                            <th class="p-4 text-right">מקורות</th>
+                            <th class="p-4 text-center">כדאיות (1=הכי טוב)</th>
+                            <th class="p-4 text-center">דירוג משוקלל</th>
+                            <th class="p-4 text-center">סימון מומלץ</th>
+                            <th class="p-4"></th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody" class="divide-y"></tbody>
+                </table>
+            </div>
         </div>
-
-        <div class="product">
-          <span class="name">Beauty of Joseon</span>
-          <span class="links">
-            <a class="buy" href="https://il.iherb.com/search?kw=Beauty%20of%20Joseon" target="_blank" rel="noopener">🛒 רכישה</a>
-            <a class="ad" href="https://www.tiktok.com/search?q=Beauty%20of%20Joseon%20sunscreen" target="_blank" rel="noopener">📣 פרסום</a>
-          </span>
-        </div>
-
-        <div class="product">
-          <span class="name">Anua Heartleaf</span>
-          <span class="links">
-            <a class="buy" href="https://il.iherb.com/search?kw=Anua%20Heartleaf%2077%20Toner" target="_blank" rel="noopener">🛒 רכישה</a>
-            <a class="ad" href="https://www.tiktok.com/search?q=Anua%20Heartleaf%20Toner" target="_blank" rel="noopener">📣 פרסום</a>
-          </span>
-        </div>
-
-        <div class="product">
-          <span class="name">Haruharu Wonder</span>
-          <span class="links">
-            <a class="buy" href="https://il.iherb.com/search?kw=Haruharu%20Wonder" target="_blank" rel="noopener">🛒 רכישה</a>
-            <a class="ad" href="https://www.tiktok.com/search?q=Haruharu%20Wonder" target="_blank" rel="noopener">📣 פרסום</a>
-          </span>
-        </div>
-      </div>
     </div>
 
-    <p class="footer-q">למה זה כדאי לחנות אונליין? 🚀</p>
-    <p class="legend">🛒 רכישה = חיפוש המוצר ב‑iHerb (משלוח לישראל). 📣 פרסום = חיפוש בטיקטוק למקור הויראלי הכי מוצלח של המוצר. אפשר להחליף בקלות לכל לינק ספציפי שתרצי.</p>
-  </div>
-</div>
+    <!-- Modal -->
+    <div id="modal" onclick="if (event.target.id === 'modal') closeModal()" class="hidden fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4">
+        <div onclick="event.stopImmediatePropagation()" class="bg-white rounded-3xl w-full max-w-4xl max-h-[90vh] overflow-hidden flex flex-col modal">
+            <!-- Modal Header -->
+            <div class="p-6 border-b flex justify-between items-center bg-slate-50">
+                <div class="flex items-center gap-4">
+                    <div id="modalRank" class="w-10 h-10 rounded-2xl flex items-center justify-center text-white font-bold text-xl"></div>
+                    <div>
+                        <h3 id="modalTitle" class="text-2xl font-semibold"></h3>
+                        <p id="modalSubtitle" class="text-sm text-slate-500"></p>
+                    </div>
+                </div>
+                <button onclick="closeModal()" class="text-3xl text-slate-400 hover:text-slate-600">&times;</button>
+            </div>
 
-<script>
-  // סגירה בלחיצה על הרקע
-  document.getElementById('kbeauty').addEventListener('click', function(e){
-    if(e.target === this) this.classList.remove('show');
-  });
-  // סגירה ב-Esc
-  document.addEventListener('keydown', function(e){
-    if(e.key === 'Escape') document.getElementById('kbeauty').classList.remove('show');
-  });
-</script>
+            <!-- Tabs -->
+            <div class="flex border-b px-6 overflow-x-auto">
+                <button onclick="switchTab(0)" class="tab-btn active px-5 py-3 text-sm font-medium border-b-2 border-blue-600">סקירה</button>
+                <button onclick="switchTab(1)" class="tab-btn px-5 py-3 text-sm font-medium">טרנדים</button>
+                <button onclick="switchTab(2)" class="tab-btn px-5 py-3 text-sm font-medium">רגולציה</button>
+                <button onclick="switchTab(3)" class="tab-btn px-5 py-3 text-sm font-medium">השקעה</button>
+                <button onclick="switchTab(4)" class="tab-btn px-5 py-3 text-sm font-medium">מחירים</button>
+                <button onclick="switchTab(5)" class="tab-btn px-5 py-3 text-sm font-medium">מתחרים</button>
+            </div>
 
+            <!-- Tab Content -->
+            <div class="p-6 overflow-y-auto flex-1" style="max-height: 60vh;">
+                <!-- Tab 0: Overview -->
+                <div id="tab-0" class="tab-content">
+                    <div id="modalDescription" class="prose"></div>
+                    <div class="mt-6">
+                        <h4 class="font-semibold mb-3">למה זה כדאי לחנות אונליין?</h4>
+                        <div id="modalWhy" class="grid grid-cols-1 md:grid-cols-2 gap-3"></div>
+                    </div>
+                </div>
+
+                <!-- Tab 1: Trends -->
+                <div id="tab-1" class="tab-content hidden">
+                    <div id="modalTrends"></div>
+                </div>
+
+                <!-- Tab 2: Regulations -->
+                <div id="tab-2" class="tab-content hidden">
+                    <div id="modalRegulations" class="space-y-3"></div>
+                </div>
+
+                <!-- Tab 3: Investment -->
+                <div id="tab-3" class="tab-content hidden">
+                    <div id="modalInvestment"></div>
+                </div>
+
+                <!-- Tab 4: Price Comparison -->
+                <div id="tab-4" class="tab-content hidden">
+                    <div id="modalPrices"></div>
+                </div>
+
+                <!-- Tab 5: Competitors -->
+                <div id="tab-5" class="tab-content hidden">
+                    <div id="modalCompetitors"></div>
+                </div>
+
+                <!-- Recommended Products Section (appears for relevant products) -->
+                <div id="modalRecommended" class="mt-6"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // לינקים לרכישה (iHerb) ולמקור הפרסום הויראלי (TikTok) לכל מוצר קוריאני
+        const kbeautyLinks = {
+            "COSRX Snail Mucin":        { buy: "https://il.iherb.com/search?kw=COSRX%20Snail%20Mucin",            ad: "https://www.tiktok.com/search?q=COSRX%20Snail%20Mucin" },
+            "Beauty of Joseon":         { buy: "https://il.iherb.com/search?kw=Beauty%20of%20Joseon",             ad: "https://www.tiktok.com/search?q=Beauty%20of%20Joseon%20sunscreen" },
+            "Anua Heartleaf":           { buy: "https://il.iherb.com/search?kw=Anua%20Heartleaf%2077%20Toner",    ad: "https://www.tiktok.com/search?q=Anua%20Heartleaf%20Toner" },
+            "Haruharu Wonder":          { buy: "https://il.iherb.com/search?kw=Haruharu%20Wonder",                ad: "https://www.tiktok.com/search?q=Haruharu%20Wonder" },
+            "Medicube Collagen Jelly":  { buy: "https://il.iherb.com/search?kw=Medicube%20Collagen%20Jelly",      ad: "https://www.tiktok.com/search?q=Medicube%20Collagen%20Jelly" },
+            "VT Cosmetics Reedle Shot": { buy: "https://il.iherb.com/search?kw=VT%20Reedle%20Shot",               ad: "https://www.tiktok.com/search?q=VT%20Reedle%20Shot" },
+            "Torriden Dive-In Serum":   { buy: "https://il.iherb.com/search?kw=Torriden%20Dive-In%20Serum",       ad: "https://www.tiktok.com/search?q=Torriden%20Dive-In%20Serum" },
+            "Abib Heartleaf":           { buy: "https://il.iherb.com/search?kw=Abib%20Heartleaf",                 ad: "https://www.tiktok.com/search?q=Abib%20Heartleaf" }
+        };
+
+        // בונה שורת מוצר קוריאני עם שני הלינקים
+        function kbeautyItem(name) {
+            const l = kbeautyLinks[name] || { buy: "#", ad: "#" };
+            return `
+                <li class="flex items-center justify-between gap-2 bg-white rounded-xl px-3 py-2 shadow-sm">
+                    <span class="font-medium text-sm">${name}</span>
+                    <span class="flex gap-1.5 shrink-0">
+                        <a href="${l.buy}" target="_blank" rel="noopener" title="לינק לרכישה ב-iHerb"
+                           class="text-xs px-2.5 py-1 bg-blue-600 hover:bg-blue-700 text-white rounded-lg whitespace-nowrap">
+                           <i class="fas fa-shopping-cart"></i> רכישה
+                        </a>
+                        <a href="${l.ad}" target="_blank" rel="noopener" title="מקור הפרסום הויראלי בטיקטוק"
+                           class="text-xs px-2.5 py-1 bg-gray-900 hover:bg-black text-white rounded-lg whitespace-nowrap">
+                           <i class="fas fa-bullhorn"></i> פרסום
+                        </a>
+                    </span>
+                </li>`;
+        }
+
+        const products = [
+            {
+                id: 1, rank: 1, name: "מוצרי מונדיאל 2026", category: "ספורט",
+                feasibility: 1, weightedRating: 9.8, virality: "גבוה מאוד",
+                sources: "Google Trends, TikTok", trendPosition: "1 (הכי חם)",
+                notes: "ביקוש שיא בקיץ. ויזואלי. קל לשווק.",
+                description: "חולצות, כדורים ומזכרות ממונדיאל 2026.",
+                whyOnline: ["ביקוש עונתי חזק", "תוכן רגשי ויראלי", "שוליים טובים"],
+                trends: "טיקטוק: אתגרי כדורגל. אינסטגרם: תמיכה בנבחרת.",
+                regulations: ["רגולציה נמוכה למוצרים גנריים", "מוצרים רשמיים דורשים רישוי FIFA"],
+                investment: "עלויות התחלה נמוכות. מומלץ dropshipping.",
+                nextSteps: "1. מצא ספק. 2. הכן תמונות. 3. השקה לפני הטורניר.",
+                prices: { retail: "₪129-189", cost: "₪45-75", margin: "50-65%" },
+                competitors: "Super-Pharm, KSP, אתרי ספורט מקומיים"
+            },
+            {
+                id: 2, rank: 2, name: "מוצרי טיפוח (Snail Mucin, Hyaluronic)", category: "יופי",
+                feasibility: 2, weightedRating: 9.2, virality: "גבוה",
+                sources: "TikTok Shop, Instagram", trendPosition: "2",
+                notes: "טרנד חזק. שוליים גבוהים. קל לשלוח.",
+                description: "סרומים ומסכות טיפוח ויראליים.",
+                whyOnline: ["before/after ויראלי", "רכישות חוזרות", "משקל קל"],
+                trends: "אלפי סרטונים בטיקטוק על 'המוצר שהציל את העור'.",
+                regulations: ["הודעה למשרד הבריאות", "תיוג בעברית"],
+                investment: "מלאי קל. שוליים 45-65%.",
+                nextSteps: "1. ספק קוריאני. 2. תרגום תוויות. 3. UGC.",
+                prices: { retail: "₪89-149", cost: "₪25-55", margin: "55-70%" },
+                competitors: "Super-Pharm, אתרי יופי, KSP",
+                recommendedProducts: [
+                    {
+                        name: "COSRX Advanced Snail 96 Mucin Power Essence",
+                        price: "53-65 ₪",
+                        where: "iHerb (הכי מומלץ)",
+                        link: "https://www.iherb.com/pr/cosrx-advanced-snail-96-mucin-power-essence-3-38-fl-oz-100-ml/77208"
+                    },
+                    {
+                        name: "Biodance Bio-Collagen Real Deep Beauty Mask (4 יח')",
+                        price: "70-95 ₪",
+                        where: "iHerb",
+                        link: "https://www.iherb.com/pr/biodance-bio-collagen-real-deep-beauty-mask-4-sheets-1-19-oz-34-g-each/143906"
+                    },
+                    {
+                        name: "The Ordinary Hyaluronic Acid 2% + B5",
+                        price: "45-60 ₪",
+                        where: "iHerb",
+                        link: "https://il.iherb.com/pr/cosmedica-skincare-pure-hyaluronic-acid-serum-vitamin-b5-2-oz-60-ml/147651"
+                    }
+                ]
+            },
+            {
+                id: 3, rank: 3, name: "תוספי תזונה (מגנזיום, מלטונין)", category: "בריאות",
+                feasibility: 3, weightedRating: 8.5, virality: "בינוני-גבוה",
+                sources: "Google Trends, TikTok", trendPosition: "3",
+                notes: "ביקוש קבוע. פוטנציאל רכישות חוזרות.",
+                description: "תוספי מגנזיום ומלטונין גאמיז.",
+                whyOnline: ["LTV גבוה", "קל לפרסם", "שוליים טובים"],
+                trends: "סרטונים של 'שגרת שינה' בטיקטוק.",
+                regulations: ["רישום כתוסף תזונה במשרד הבריאות"],
+                investment: "רגולציה היא המכשול העיקרי.",
+                nextSteps: "1. יועץ רגולטורי. 2. ספק עם תעודות. 3. רישום.",
+                prices: { retail: "₪69-119", cost: "₪18-35", margin: "55-70%" },
+                competitors: "Super-Pharm, iHerb, אתרי תוספים"
+            },
+            {
+                id: 4, rank: 4, name: "אופנה קיצית (Wrap Skirts, Travel Pants)", category: "אופנה",
+                feasibility: 2, weightedRating: 8.8, virality: "גבוה",
+                sources: "Google Trends, TikTok", trendPosition: "4",
+                notes: "טרנד קיצי. תוכן try-on ויראלי.",
+                description: "חצאיות עוטפות ומכנסי טravel נוחים.",
+                whyOnline: ["try-on ויראלי", "עונתי", "שוליים טובים"],
+                trends: "Try-on hauls בטיקטוק ואינסטגרם.",
+                regulations: ["תיוג טקסטיל + הוראות כביסה"],
+                investment: "קל יחסית. ניהול החזרות חשוב.",
+                nextSteps: "1. ספק טורקי/סיני. 2. מדיניות החזרות. 3. תוכן try-on.",
+                prices: { retail: "₪99-169", cost: "₪32-55", margin: "50-65%" },
+                competitors: "Fox, Zara, אתרי אופנה מקומיים"
+            },
+            {
+                id: 5, rank: 5, name: "ציוד כושר ויוגה", category: "ספורט",
+                feasibility: 2, weightedRating: 8.0, virality: "בינוני-גבוה",
+                sources: "TikTok, Instagram", trendPosition: "5",
+                notes: "תוכן אימון ביתי חזק. מוצר עמיד.",
+                description: "מחצלות יוגה ואביזרי כושר ביתי.",
+                whyOnline: ["תוכן אימון ויראלי", "עמיד", "עונתי"],
+                trends: "אתגרי אימון בטיקטוק.",
+                regulations: ["רגולציה נמוכה"],
+                investment: "בינוני. תחרות מקומית קיימת.",
+                nextSteps: "1. 2-3 מוצרים מובילים. 2. תוכן אימון. 3. שיתוף עם מאמנים.",
+                prices: { retail: "₪79-139", cost: "₪28-48", margin: "50-60%" },
+                competitors: "Sport Depot, אתרי ספורט"
+            },
+            {
+                id: 6, rank: 6, name: "גאדג'טים חכמים / AI", category: "טכנולוגיה",
+                feasibility: 4, weightedRating: 7.5, virality: "בינוני",
+                sources: "TikTok Tech", trendPosition: "6",
+                notes: "עניין גבוה אבל תחרות קשה.",
+                description: "אוזניות, מתרגמים ומכשירי בית חכם.",
+                whyOnline: ["unboxing ויראלי", "פרימיום", "קהל טכנולוגי"],
+                trends: "Tech reviews בטיקטוק.",
+                regulations: ["אישור מכון התקנים"],
+                investment: "סיכון גבוה יותר (תמיכה, החזרות).",
+                nextSteps: "1. בדוק תקנים. 2. תמיכה טכנית. 3. קמפיין קטן לבדיקה.",
+                prices: { retail: "₪149-299", cost: "₪65-120", margin: "40-55%" },
+                competitors: "KSP, Bug, אתרי אלקטרוניקה"
+            },
+            {
+                id: 7, rank: 7, name: "מוצרי איפור ויראליים", category: "יופי",
+                feasibility: 2, weightedRating: 8.3, virality: "גבוה",
+                sources: "TikTok Makeup", trendPosition: "7",
+                notes: "מעורבות גבוהה. קל ליצור תוכן.",
+                description: "שפתונים נוזליים ומוצרי איפור ויראליים.",
+                whyOnline: ["swatch ויראלי", "קהל נאמן", "שוליים גבוהים"],
+                trends: "Swatch videos בטיקטוק.",
+                regulations: ["הודעה למשרד הבריאות"],
+                investment: "קל יחסית. תחרות בינונית.",
+                nextSteps: "1. פלטת צבעים פופולרית. 2. תוכן swatch. 3. קמפיין Beauty.",
+                prices: { retail: "₪59-119", cost: "₪18-38", margin: "55-70%" },
+                competitors: "Super-Pharm, אתרי יופי"
+            },
+            {
+                id: 8, rank: 8, name: "מוצרי שדרוג בית", category: "בית",
+                feasibility: 3, weightedRating: 7.8, virality: "בינוני",
+                sources: "TikTok Home", trendPosition: "8",
+                notes: "תוכן before/after חזק. מוצר עמיד.",
+                description: "מארגנים ותאורה חכמה.",
+                whyOnline: ["glow up ויראלי", "עמיד", "עונתי"],
+                trends: "Home transformation בטיקטוק.",
+                regulations: ["רגולציה נמוכה"],
+                investment: "בינוני. תחרות מקומית.",
+                nextSteps: "1. 2-3 מוצרים. 2. תוכן before/after. 3. קמפיין Home.",
+                prices: { retail: "₪69-149", cost: "₪25-52", margin: "50-60%" },
+                competitors: "אתרי בית, KSP"
+            }
+        ];
+
+        // Render Cards
+        function renderCards() {
+            const grid = document.getElementById('productGrid');
+            grid.innerHTML = '';
+            products.forEach(p => {
+                const card = document.createElement('div');
+                card.className = 'product-card bg-white border rounded-3xl p-5 cursor-pointer';
+                card.innerHTML = `
+                    <div class="flex justify-between mb-3">
+                        <div class="flex items-center gap-2">
+                            <span class="px-3 py-1 text-xs rounded-2xl ${p.feasibility===1?'bg-emerald-100 text-emerald-700':'bg-amber-100 text-amber-700'}">דירוג ${p.feasibility}</span>
+                            ${p.feasibility <= 2 ? '<span class="text-emerald-500"><i class="fas fa-check-circle"></i></span>' : ''}
+                        </div>
+                        <span class="font-bold text-xl">${p.weightedRating}</span>
+                    </div>
+                    <div class="font-semibold text-lg mb-1">${p.name}</div>
+                    <div class="text-sm text-slate-500 mb-4">${p.category}</div>
+                    <button onclick="event.stopImmediatePropagation(); showProductDetail(${p.id})"
+                            class="w-full py-2 text-sm bg-blue-600 text-white rounded-2xl font-medium">פרטים נוספים</button>
+                `;
+                card.onclick = () => showProductDetail(p.id);
+                grid.appendChild(card);
+            });
+        }
+
+        // Render Table
+        function renderTable() {
+            const tbody = document.getElementById('tableBody');
+            tbody.innerHTML = '';
+            products.sort((a,b) => a.rank - b.rank).forEach(p => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td class="p-4 font-bold">${p.rank}</td>
+                    <td class="p-4 font-medium">${p.name}</td>
+                    <td class="p-4 text-xs text-slate-500">${p.sources}</td>
+                    <td class="p-4 text-center"><span class="px-3 py-1 rounded-2xl text-sm font-bold ${p.feasibility===1?'bg-emerald-100 text-emerald-700':'bg-amber-100 text-amber-700'}">${p.feasibility}</span></td>
+                    <td class="p-4 text-center font-bold">${p.weightedRating}</td>
+                    <td class="p-4 text-center">${p.feasibility <= 2 ? '<span class="text-emerald-500 text-lg"><i class="fas fa-check-circle"></i></span>' : ''}</td>
+                    <td class="p-4"><button onclick="event.stopImmediatePropagation(); showProductDetail(${p.id})" class="text-blue-600 text-sm">פרטים</button></td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        let currentProduct = null;
+
+        function showProductDetail(id) {
+            currentProduct = products.find(p => p.id === id);
+            if (!currentProduct) return;
+
+            document.getElementById('modalTitle').textContent = currentProduct.name;
+            document.getElementById('modalSubtitle').textContent = currentProduct.category;
+            document.getElementById('modalRank').innerHTML = currentProduct.rank;
+            document.getElementById('modalRank').className = `w-10 h-10 rounded-2xl flex items-center justify-center text-white font-bold text-xl ${currentProduct.feasibility === 1 ? 'bg-emerald-500' : 'bg-amber-500'}`;
+
+            // Populate tabs
+            document.getElementById('modalDescription').innerHTML = `<p>${currentProduct.description}</p>`;
+            document.getElementById('modalWhy').innerHTML = currentProduct.whyOnline.map(item => `<div class="p-3 bg-white border rounded-2xl text-sm">${item}</div>`).join('');
+            document.getElementById('modalTrends').innerHTML = `<p>${currentProduct.trends}</p>`;
+            document.getElementById('modalRegulations').innerHTML = currentProduct.regulations.map(r => `<div class="p-3 bg-amber-50 border border-amber-200 rounded-2xl">${r}</div>`).join('');
+            document.getElementById('modalInvestment').innerHTML = `<p>${currentProduct.investment}</p><p class="mt-3"><strong>צעדים:</strong> ${currentProduct.nextSteps}</p>`;
+            document.getElementById('modalPrices').innerHTML = `
+                <div class="grid grid-cols-3 gap-4 text-center">
+                    <div><div class="text-xs">מחיר קמעונאי</div><div class="font-bold text-xl">${currentProduct.prices.retail}</div></div>
+                    <div><div class="text-xs">עלות מקור</div><div class="font-bold text-xl">${currentProduct.prices.cost}</div></div>
+                    <div><div class="text-xs">שולי רווח</div><div class="font-bold text-xl">${currentProduct.prices.margin}</div></div>
+                </div>`;
+            document.getElementById('modalCompetitors').innerHTML = `<p>${currentProduct.competitors}</p>`;
+
+// Show recommended buyable products if exists (for skincare)
+            const recContainer = document.getElementById('modalRecommended');
+            if (recContainer && currentProduct.recommendedProducts) {
+                recContainer.innerHTML = `
+                    <h4 class="font-semibold mt-6 mb-3">מוצרים מומלצים לקנייה (עם לינקים)</h4>
+                    <div class="space-y-3">
+                        ${currentProduct.recommendedProducts.map(item => `
+                            <div class="border rounded-2xl p-4 bg-white">
+                                <div class="font-medium">${item.name}</div>
+                                <div class="text-sm text-slate-600 mt-1">${item.price} • ${item.where}</div>
+                                <a href="${item.link}" target="_blank"
+                                   class="inline-block mt-2 text-sm px-4 py-1.5 bg-blue-600 text-white rounded-2xl hover:bg-blue-700">
+                                    קנה עכשיו <i class="fas fa-external-link-alt ml-1"></i>
+                                </a>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+            } else if (recContainer) {
+                recContainer.innerHTML = '';
+            }
+
+            document.getElementById('modal').classList.remove('hidden');
+            document.getElementById('modal').classList.add('flex');
+            switchTab(0);
+        }
+
+        function switchTab(tab) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            document.getElementById(`tab-${tab}`).classList.remove('hidden');
+
+            document.querySelectorAll('.tab-btn').forEach((btn, i) => {
+                btn.classList.toggle('active', i === tab);
+            });
+        }
+
+        function closeModal() {
+            document.getElementById('modal').classList.remove('flex');
+            document.getElementById('modal').classList.add('hidden');
+        }
+
+        function filterHighFeasibility() {
+            const filtered = products.filter(p => p.feasibility <= 2);
+            // Re-render cards with filtered (simplified for demo)
+            alert("סינון למוצרים עם כדאיות 1-2 (5 מוצרים)");
+        }
+
+        function showAllProducts() {
+            document.getElementById('productGrid').scrollIntoView({behavior:'smooth'});
+        }
+
+        function showAverageExplanation() {
+            alert("ממוצע דירוג כדאיות 2.1\n\nהממוצע הנמוך יחסית מעיד שרוב המוצרים ברשימה נמצאים ברמת כדאיות טובה להשקעה בחנות אונליין.");
+        }
+
+        function filterHighFeasibility() {
+            const filtered = products.filter(p => p.feasibility <= 2);
+            // Simple filter - in real version would re-render cards
+            alert("סוננו " + filtered.length + " מוצרים עם כדאיות גבוהה (דירוג 1-2).\n\nבגרסה מלאה זה היה מסנן את הכרטיסים והטבלה.");
+        }
+
+        function showAllProducts() {
+            document.getElementById('productGrid').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function openKBeautyDashboard() {
+            // Clear previous content and show modal
+            document.getElementById('modalTitle').textContent = "טיפוח קוריאני טרנדי (K-Beauty) 2026";
+            document.getElementById('modalSubtitle').textContent = "10 המוצרים הקוריאניים הכי חמים";
+            document.getElementById('modalRank').innerHTML = `<i class="fas fa-sparkles text-3xl"></i>`;
+            document.getElementById('modalRank').className = "w-10 h-10 rounded-2xl flex items-center justify-center text-white font-bold text-xl bg-purple-600";
+
+            // Populate overview tab with K-Beauty content (כל מוצר עם לינק לרכישה + מקור פרסום)
+            document.getElementById('modalDescription').innerHTML = `
+                <p class="text-lg">ניתוח מקיף של 8 מוצרי טיפוח קוריאניים (K-Beauty) הכי טרנדיים ב-2026. לכל מוצר: <span class="text-blue-600 font-semibold">🛒 לינק לרכישה</span> + <span class="text-gray-900 font-semibold">📣 לינק למקור הפרסום הכי מוצלח</span> (הסרטון הויראלי שהפך אותו לטרנד).</p>
+                <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-emerald-50 p-5 rounded-3xl">
+                        <h4 class="font-semibold text-emerald-700 mb-3">🟢 כבר זמינים בישראל</h4>
+                        <ul class="space-y-2 text-sm">
+                            ${kbeautyItem("COSRX Snail Mucin")}
+                            ${kbeautyItem("Beauty of Joseon")}
+                            ${kbeautyItem("Anua Heartleaf")}
+                            ${kbeautyItem("Haruharu Wonder")}
+                        </ul>
+                    </div>
+                    <div class="bg-amber-50 p-5 rounded-3xl">
+                        <h4 class="font-semibold text-amber-700 mb-3">🔴 טרנדים חדשים / עתידיים</h4>
+                        <ul class="space-y-2 text-sm">
+                            ${kbeautyItem("Medicube Collagen Jelly")}
+                            ${kbeautyItem("VT Cosmetics Reedle Shot")}
+                            ${kbeautyItem("Torriden Dive-In Serum")}
+                            ${kbeautyItem("Abib Heartleaf")}
+                        </ul>
+                    </div>
+                </div>
+                <p class="text-xs text-slate-500 mt-4">🛒 רכישה = חיפוש המוצר ב-iHerb (משלוח לישראל) • 📣 פרסום = מקור הפרסום הויראלי בטיקטוק. ניתן להחליף בכל לינק ספציפי.</p>
+            `;
+
+            // Clear other tabs for now
+            document.getElementById('modalTrends').innerHTML = '<p class="text-slate-600">מידע מפורט על טרנדים ב-TikTok, Instagram ו-Olive Young יופיע כאן.</p>';
+            document.getElementById('modalRegulations').innerHTML = '<p>רגולציה: הודעה למשרד הבריאות למוצרי קוסמטיקה.</p>';
+            document.getElementById('modalInvestment').innerHTML = '<p>שוליים גבוהים, תחרות בינונית, פוטנציאל ויראלי גבוה.</p>';
+            document.getElementById('modalPrices').innerHTML = '<p>השוואות מחירים בין iHerb, YesStyle, Super-Pharm יופיעו כאן.</p>';
+            document.getElementById('modalCompetitors').innerHTML = '<p>Super-Pharm, iHerb, אתרי K-Beauty מקומיים.</p>';
+            document.getElementById('modalRecommended').innerHTML = '';
+
+            // Show the modal
+            document.getElementById('modal').classList.remove('hidden');
+            document.getElementById('modal').classList.add('flex');
+            switchTab(0);
+        }
+
+        // Init
+        function init() {
+            renderCards();
+            renderTable();
+        }
+        window.onload = init;
+    </script>
 </body>
 </html>
