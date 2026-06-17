@@ -84,7 +84,7 @@
                 <i class="fas fa-sparkles"></i>
                 טיפוח קוריאני טרנדי (K-Beauty)
             </button>
-            <p class="text-center text-sm text-slate-500 mt-2">10 המוצרים הקוריאניים הכי חמים ב-2026</p>
+            <p class="text-center text-sm text-slate-500 mt-2">12 המוצרים הקוריאניים הכי חמים ב-2026</p>
         </div>
 
         <!-- Product Cards Grid -->
@@ -198,7 +198,11 @@
             "Medicube Collagen Jelly":  { buy: "https://il.iherb.com/search?kw=Medicube%20Collagen%20Jelly",      ad: "https://www.tiktok.com/search?q=Medicube%20Collagen%20Jelly" },
             "VT Cosmetics Reedle Shot": { buy: "https://il.iherb.com/search?kw=VT%20Reedle%20Shot",               ad: "https://www.tiktok.com/search?q=VT%20Reedle%20Shot" },
             "Torriden Dive-In Serum":   { buy: "https://il.iherb.com/search?kw=Torriden%20Dive-In%20Serum",       ad: "https://www.tiktok.com/search?q=Torriden%20Dive-In%20Serum" },
-            "Abib Heartleaf":           { buy: "https://il.iherb.com/search?kw=Abib%20Heartleaf",                 ad: "https://www.tiktok.com/search?q=Abib%20Heartleaf" }
+            "Abib Heartleaf":           { buy: "https://il.iherb.com/search?kw=Abib%20Heartleaf",                 ad: "https://www.tiktok.com/search?q=Abib%20Heartleaf" },
+            "Tirtir Mask Fit Red Cushion":   { buy: "https://www.yesstyle.com/en/search?q=TIRTIR%20Mask%20Fit%20Red%20Cushion",   ad: "https://www.tiktok.com/search?q=TIRTIR%20Red%20Cushion" },
+            "Kahi Wrinkle Bounce Multi Balm":{ buy: "https://www.yesstyle.com/en/search?q=KAHI%20Wrinkle%20Bounce%20Multi%20Balm", ad: "https://www.tiktok.com/search?q=KAHI%20Multi%20Balm" },
+            "ma:nyo Pure Cleansing Oil":     { buy: "https://www.yesstyle.com/en/search?q=Manyo%20Pure%20Cleansing%20Oil",         ad: "https://www.tiktok.com/search?q=Manyo%20Cleansing%20Oil" },
+            "Mixsoon Bean Essence":          { buy: "https://www.yesstyle.com/en/search?q=mixsoon%20Bean%20Essence",               ad: "https://www.tiktok.com/search?q=mixsoon%20Bean%20Essence" }
         };
 
         // בונה שורת מוצר קוריאני עם שני הלינקים
@@ -493,13 +497,13 @@
         function openKBeautyDashboard() {
             // Clear previous content and show modal
             document.getElementById('modalTitle').textContent = "טיפוח קוריאני טרנדי (K-Beauty) 2026";
-            document.getElementById('modalSubtitle').textContent = "10 המוצרים הקוריאניים הכי חמים";
+            document.getElementById('modalSubtitle').textContent = "12 המוצרים הקוריאניים הכי חמים";
             document.getElementById('modalRank').innerHTML = `<i class="fas fa-sparkles text-3xl"></i>`;
             document.getElementById('modalRank').className = "w-10 h-10 rounded-2xl flex items-center justify-center text-white font-bold text-xl bg-purple-600";
 
             // Populate overview tab with K-Beauty content (כל מוצר עם לינק לרכישה + מקור פרסום)
             document.getElementById('modalDescription').innerHTML = `
-                <p class="text-lg">ניתוח מקיף של 8 מוצרי טיפוח קוריאניים (K-Beauty) הכי טרנדיים ב-2026. לכל מוצר: <span class="text-blue-600 font-semibold">🛒 לינק לרכישה</span> + <span class="text-gray-900 font-semibold">📣 לינק למקור הפרסום הכי מוצלח</span> (הסרטון הויראלי שהפך אותו לטרנד).</p>
+                <p class="text-lg">ניתוח מקיף של 12 מוצרי טיפוח קוריאניים (K-Beauty) הכי טרנדיים ב-2026 — 8 שכבר זמינים בישראל ו-4 טרנדים חדשים שעדיין לא הגיעו. לכל מוצר: <span class="text-blue-600 font-semibold">🛒 לינק לרכישה</span> + <span class="text-gray-900 font-semibold">📣 לינק למקור הפרסום הכי מוצלח</span> (הסרטון הויראלי שהפך אותו לטרנד).</p>
                 <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div class="bg-emerald-50 p-5 rounded-3xl">
                         <h4 class="font-semibold text-emerald-700 mb-3">🟢 כבר זמינים בישראל</h4>
@@ -509,18 +513,22 @@
                             ${kbeautyItem("Anua Heartleaf")}
                             ${kbeautyItem("Haruharu Wonder")}
                             ${kbeautyItem("Medicube Collagen Jelly")}
-                        </ul>
-                    </div>
-                    <div class="bg-amber-50 p-5 rounded-3xl">
-                        <h4 class="font-semibold text-amber-700 mb-3">🔴 טרנדים חדשים / עתידיים</h4>
-                        <ul class="space-y-2 text-sm">
                             ${kbeautyItem("VT Cosmetics Reedle Shot")}
                             ${kbeautyItem("Torriden Dive-In Serum")}
                             ${kbeautyItem("Abib Heartleaf")}
                         </ul>
                     </div>
+                    <div class="bg-amber-50 p-5 rounded-3xl">
+                        <h4 class="font-semibold text-amber-700 mb-3">🔴 טרנדים חדשים / עתידיים</h4>
+                        <ul class="space-y-2 text-sm">
+                            ${kbeautyItem("Tirtir Mask Fit Red Cushion")}
+                            ${kbeautyItem("Kahi Wrinkle Bounce Multi Balm")}
+                            ${kbeautyItem("ma:nyo Pure Cleansing Oil")}
+                            ${kbeautyItem("Mixsoon Bean Essence")}
+                        </ul>
+                    </div>
                 </div>
-                <p class="text-xs text-slate-500 mt-4">🛒 רכישה = חיפוש המוצר ב-iHerb (משלוח לישראל) • 📣 פרסום = מקור הפרסום הויראלי בטיקטוק. ניתן להחליף בכל לינק ספציפי.</p>
+                <p class="text-xs text-slate-500 mt-4">🛒 רכישה = זמינים בישראל → חיפוש ב-iHerb (משלוח לישראל); טרנדים חדשים → חיפוש ב-YesStyle (שולח לישראל) • 📣 פרסום = מקור הפרסום הויראלי בטיקטוק. ניתן להחליף בכל לינק ספציפי.</p>
             `;
 
             // Clear other tabs for now
