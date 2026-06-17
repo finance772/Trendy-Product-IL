@@ -151,7 +151,7 @@
                 <!-- Tab 0: Overview -->
                 <div id="tab-0" class="tab-content">
                     <div id="modalDescription" class="prose"></div>
-                    <div class="mt-6">
+                    <div class="mt-6" id="whySection">
                         <h4 class="font-semibold mb-3">למה זה כדאי לחנות אונליין?</h4>
                         <div id="modalWhy" class="grid grid-cols-1 md:grid-cols-2 gap-3"></div>
                     </div>
@@ -412,6 +412,7 @@
 
             // Populate tabs
             document.getElementById('modalDescription').innerHTML = `<p>${currentProduct.description}</p>`;
+            document.getElementById('whySection').classList.remove('hidden');
             document.getElementById('modalWhy').innerHTML = currentProduct.whyOnline.map(item => `<div class="p-3 bg-white border rounded-2xl text-sm">${item}</div>`).join('');
             document.getElementById('modalTrends').innerHTML = `<p>${currentProduct.trends}</p>`;
             document.getElementById('modalRegulations').innerHTML = currentProduct.regulations.map(r => `<div class="p-3 bg-amber-50 border border-amber-200 rounded-2xl">${r}</div>`).join('');
@@ -529,6 +530,7 @@
             document.getElementById('modalPrices').innerHTML = '<p>השוואות מחירים בין iHerb, YesStyle, Super-Pharm יופיעו כאן.</p>';
             document.getElementById('modalCompetitors').innerHTML = '<p>Super-Pharm, iHerb, אתרי K-Beauty מקומיים.</p>';
             document.getElementById('modalRecommended').innerHTML = '';
+            document.getElementById('whySection').classList.add('hidden');
 
             // Show the modal
             document.getElementById('modal').classList.remove('hidden');
