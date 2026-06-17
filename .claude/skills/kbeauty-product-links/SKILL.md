@@ -63,8 +63,11 @@ correct, fully-linked popup.
        `?q=` returned "Page Not Available"). Prefer stable search URLs over
        direct product-page URLs, which break when stores change paths. Only use
        a direct product/official-store URL if the user provides it.
-   - **Promotion link** → `https://www.tiktok.com/search?q=<PRODUCT>` (or a
-     specific viral video URL if the user provides one).
+   - **Promotion link** → `https://www.google.com/search?q=tiktok%20<PRODUCT>`
+     (a Google search for the product on TikTok). Do **not** use
+     `tiktok.com/search?q=` — it breaks on mobile (iPhone/Samsung) by forcing
+     the app or a login wall. Use a specific viral video URL only if the user
+     provides one.
    - URL-encode product names (spaces → `%20`, or `+` for Amazon).
 
 5. **Render the columns** by calling `kbeautyItem("<name>")` for each product in
@@ -96,7 +99,8 @@ Cosmetics Reedle Shot · Torriden Dive-In Serum · Abib Heartleaf
 🔴 **טרנדים חדשים / עתידיים (Amazon links, 4):** Tirtir Mask Fit Red Cushion ·
 Kahi Wrinkle Bounce Multi Balm · ma:nyo Pure Cleansing Oil · Mixsoon Bean Essence
 
-📣 All promotion links point to a TikTok search for the product.
+📣 All promotion links are a Google search for the product on TikTok
+(mobile-friendly; plain `tiktok.com/search` links break on iPhone/Samsung).
 
 ## Notes & gotchas
 
